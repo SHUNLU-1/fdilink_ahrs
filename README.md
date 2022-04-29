@@ -48,7 +48,7 @@ ros2 launch fdlink_ahrs ahrs_driver.launch.py
 
 ##### 3.3 查看数据
 ```shell
-rostopic echo /imu
+ros2 topic echo /imu
 ```
 
 
