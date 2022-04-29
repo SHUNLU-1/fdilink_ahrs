@@ -1,14 +1,33 @@
 # ROS1的imu功能包(WHEELTWC)
 
 ### 1.添加依赖：
-[高版本serial模块安装](https://icode.best/i/32316244547594)
-[linux下CH343模块驱动安装]()
+#### 1.1 serial模块安装
+[ros-foxy,ros-noetic版本的serial模块安装](https://icode.best/i/32316244547594)
+
+ros-melodic版本:
 ```bash
 sudo apt install ros-melodic-serial
 ```
+#### 1.2 CH343驱动安装
+
+[linux下CH343模块驱动安装](https://github.com/WCHSoftGroup/ch343ser_linux)
+
+**假如你会发生以下ERROR**
+
+>insmod: ERROR: could not insert module ch343.ko: Operation not permitted
+
++ 需要进入bios界面 然后将安全模式关掉 否则无法insmod
+
+>假如内核版本过高编译失败(compilation error on pop os 21.10 with kernal 5.16.15)
+
++ [高版本驱动](https://github.com/GreatestCapacity/ch343ser_linux) 这个编译有问题 代码稍微改点就可以编译了
 ### 2.修改CH9102 固定串口号
 
 [修改为固定名称](./wheeltec_udev.sh)
+
+```shell
+sudo sh wheeltec_udev.sh
+```
 
 ### 3.使用：    
 ##### 3.1 编译
@@ -27,7 +46,7 @@ roslaunch fdlink_ahrs ahrs_driver.launch
 + 1. 单独imu的坐标系模式
 
 
-##### 3.2 查看数据
+##### 3.3 查看数据
 ```shell
 rostopic echo /imu
 ```
