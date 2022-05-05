@@ -36,7 +36,7 @@ catkin_make -DCATKIN_WHITELIST_PACKAGES=fdilink_ahrs # 或者使用catkin build
 ```
 ##### 3.2 启动
 ```shell
-roslaunch fdlink_ahrs ahrs_driver.launch
+roslaunch fdilink_ahrs  ahrs_driver.launch
 ```
 [查看ahrs_driver.launch配置](./launch/ahrs_driver.launch)
 
