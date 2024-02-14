@@ -23,6 +23,7 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclpy REQUIRED)
 find_package(sensor_msgs REQUIRED)
+find_package(tf2_geometry_msgs REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(tf2 REQUIRED)
 find_package(tf2_ros REQUIRED)
@@ -49,11 +50,11 @@ include_directories(
 
 
 add_executable(ahrs_driver_node src/ahrs_driver.cpp src/crc_table.cpp)
-ament_target_dependencies(ahrs_driver_node rclcpp rclpy  std_msgs  sensor_msgs  serial tf2_ros tf2)
+ament_target_dependencies(ahrs_driver_node rclcpp rclpy  std_msgs  sensor_msgs  serial tf2_ros tf2_geometry_msgs tf2)
 
 
 add_executable(imu_tf_node src/imu_tf.cpp)
-ament_target_dependencies(imu_tf_node rclcpp rclpy std_msgs sensor_msgs serial tf2_ros tf2)
+ament_target_dependencies(imu_tf_node rclcpp rclpy std_msgs sensor_msgs serial tf2_ros tf2_geometry_msgs tf2)
 
 # find_package(Boost 1.55.0 REQUIRED COMPONENTS system filesystem)
 # include_directories(ahrs_driver_node ${Boost_INCLOUDE_DIRS})
